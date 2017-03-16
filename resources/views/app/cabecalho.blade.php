@@ -29,7 +29,7 @@
                             <img src="{{ asset("/admin-lte/dist/img/user2-160x160.jpg") }}" class="img-circle" alt="User Image" />
                             <p>
                                 {{ Auth::user()->nome }}
-                                <small>Member since Nov. 2012</small>
+                                <small>Cadastrado {{ Auth::user()->created_at->diffForHumans() }}</small>
                             </p>
                         </li>
                         <!-- Menu Body -->
