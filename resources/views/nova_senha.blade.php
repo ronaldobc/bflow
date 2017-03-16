@@ -25,13 +25,13 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><img src="img/bflow_logo.png" /> </a>
+        <a href="#"><img src="{{ asset("/img/bflow_logo.png") }}" /> </a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
         <p class="login-box-msg">Criação de nova senha</p>
 
-        <form action="{{route('password.reset')}}" method="post">
+        <form action="/passwd_reset" method="post">
 
             {{ csrf_field() }}
 

@@ -31,6 +31,12 @@
     <div class="login-box-body">
         <p class="login-box-msg">Recuperação de senha</p>
 
+        @if (session('status'))
+            <div class="callout callout-success">
+                {{ session('status') }}
+            </div>
+        @endif
+
         <form action="{{route('forgot_passwd')}}" method="post">
 
             {{ csrf_field() }}
@@ -43,13 +49,14 @@
                 <div class="col-xs-4">&nbsp;</div>
                 <!-- /.col -->
                 <div class="col-xs-8">
-                    <button type="submit" class="btn btn-primary btn-block">Enviar e-mail recuperação</button>
+                    <button type="submit" class="btn btn-primary btn-block">Enviar e-mail de recuperação</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
 
         @if($errors->getMessages())
+            <br/>
             <div class="callout callout-danger">
                 @foreach($errors->getMessages() as $error)
                     {{ $error[0] }}<br/>

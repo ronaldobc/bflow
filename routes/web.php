@@ -20,7 +20,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('forgot_passwd', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('forgot_passwd');
 Route::post('forgot_passwd', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('forgot_passwd');
 Route::get('passwd_reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('passwd_reset', 'Auth\ResetPasswordController@reset')->name('password.reset');
+Route::post('passwd_reset', 'Auth\ResetPasswordController@reset');
 
 
 Route::get('/', 'HomeController@index')->name('home');
