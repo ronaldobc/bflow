@@ -30,6 +30,7 @@ class ForgotPasswordController extends Controller
         $this->middleware('guest');
     }
 
+    //override para passar view correta
     public function showLinkRequestForm()
     {
         return view('esqueceu_senha');

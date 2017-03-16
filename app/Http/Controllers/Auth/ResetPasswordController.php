@@ -37,6 +37,7 @@ class ResetPasswordController extends Controller
         $this->middleware('guest');
     }
 
+    //override para passar view correta
     public function showResetForm($token = null)
     {
         return view('nova_senha')->with(
