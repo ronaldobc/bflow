@@ -33,20 +33,23 @@
     <div class="login-box-body">
         <p class="login-box-msg">Identifique-se para entrar</p>
 
-        <form action="{{route('principal')}}" method="get">
+        <form action="{{route('login')}}" method="post">
+
+            {{ csrf_field() }}
+
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" placeholder="E-mail">
+                <input type="email" class="form-control" placeholder="E-mail" name="email" value="{{old('email')}}" required autofocus>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" placeholder="Senha">
+                <input type="password" class="form-control" placeholder="Senha" name="password" value="" required>
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> Entrar automaticamente
+                            <input name="remember" id="remember" type="checkbox" value="S"> Entrar automaticamente
                         </label>
                     </div>
                 </div>
@@ -58,6 +61,13 @@
             </div>
         </form>
 
+        @if($errors->getMessages())
+            <div class="callout callout-danger">
+            @foreach($errors->getMessages() as $error)
+                {{ $error[0] }}<br/>
+            @endforeach
+            </div>
+        @endif
 
         <a href="#">Esqueci minha senha</a><br>
 

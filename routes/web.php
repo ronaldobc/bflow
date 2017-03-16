@@ -11,44 +11,12 @@
 |
 */
 
-Route::get('/principal', ['as'=>'principal', function(){
-
-    $data['tasks'] = [
-        [
-            'name' => 'Design New Dashboard',
-            'progress' => '87',
-            'color' => 'danger'
-        ],
-        [
-            'name' => 'Create Home Page',
-            'progress' => '76',
-            'color' => 'warning'
-        ],
-        [
-            'name' => 'Some Other Task',
-            'progress' => '32',
-            'color' => 'success'
-        ],
-        [
-            'name' => 'Start Building Website',
-            'progress' => '56',
-            'color' => 'info'
-        ],
-        [
-            'name' => 'Develop an Awesome Algorithm',
-            'progress' => '10',
-            'color' => 'success'
-        ]
-    ];
-
-    return view('principal')->with($data);
-
-}] );
+use Illuminate\Support\Facades\Auth;
 
 
+Route::get('login', 'Auth\LoginController@index')->name('login_form');
+Route::post('login', 'Auth\LoginController@login')->name('login');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/', function () {
 
-    return view('login');
-
-});
+Route::get('/', 'HomeController@index')->name('home');
