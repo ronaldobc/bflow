@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use App\Usuario;
+use Illuminate\Http\Request;
 
 class ForgotPasswordController extends Controller
 {
@@ -18,7 +20,7 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
+    use SendsPasswordResetEmails  { sendResetLinkEmail as protected traitSendResetLinkEmail; }
 
     /**
      * Create a new controller instance.
@@ -34,5 +36,21 @@ class ForgotPasswordController extends Controller
     public function showLinkRequestForm()
     {
         return view('esqueceu_senha');
+    }
+
+    public function sendResetLinkEmail(Request $request) {
+
+        $user = Usuario::where('email', $request->get('email'))->first();
+
+        if (!$user) {
+            $erro = 'Usuário não encontrado';
+        } elseif ($user->ativo > 0) {
+            return $this->traitSendResetLinkEmail($request);
+        } else {
+            $erro = 'Usuário não está ativo';
+        }
+
+        return back()->withErrors(['email' => $erro]);
+
     }
 }
