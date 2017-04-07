@@ -6,9 +6,11 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
-            <li class="header">HEADER</li>
+            <li class="header">PARÂMETROS</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="#"><i class="fa fa-dashboard"></i><span>Item 1</span></a></li>
+            <li><a href="{{route('empresa.index')}}"><i class="fa fa-building"></i><span>Empresas</span></a></li>
+            <li><a href="{{route('usuario.index')}}"><i class="fa fa-users"></i><span>Usuários</span></a></li>
+            <!--
             <li><a href="#"><i class="fa fa-dashboard"></i><span>Another Link</span></a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-dashboard"></i><span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -17,6 +19,7 @@
                     <li><a href="#"><i class="fa fa-dashboard"></i>Link in level 2</a></li>
                 </ul>
             </li>
+            -->
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

@@ -23,4 +23,11 @@ Route::get('passwd_reset/{token}', 'Auth\ResetPasswordController@showResetForm')
 Route::post('passwd_reset', 'Auth\ResetPasswordController@reset');
 
 
+// empresa
+Route::resource('empresa', 'EmpresaController');
+Route::post('empresa/restore/{id}', 'EmpresaController@restore')->name('empresa.restore');
+
+// usuario
+Route::resource('usuario', 'UsuarioController');
+
 Route::get('/', 'HomeController@index')->name('home');

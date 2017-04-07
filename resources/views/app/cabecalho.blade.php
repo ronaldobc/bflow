@@ -2,7 +2,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="{{route("home")}}" class="logo"><img src="img/bflow_logo2.png"/></a>
+    <a href="{{route("home")}}" class="logo"><img src="/img/bflow_logo2.png"/></a>
 
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top" role="navigation">

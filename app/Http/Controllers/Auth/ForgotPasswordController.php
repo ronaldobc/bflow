@@ -38,6 +38,7 @@ class ForgotPasswordController extends Controller
         return view('esqueceu_senha');
     }
 
+    //override para verificar se o usuario esta ativo antes de enviar email de reset
     public function sendResetLinkEmail(Request $request) {
 
         $user = Usuario::where('email', $request->get('email'))->first();
