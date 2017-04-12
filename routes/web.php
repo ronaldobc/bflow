@@ -29,5 +29,6 @@ Route::post('empresa/restore/{id}', 'EmpresaController@restore')->name('empresa.
 
 // usuario
 Route::resource('usuario', 'UsuarioController');
+Route::post('usuario/restore/{id}', 'UsuarioController@restore')->name('usuario.restore');
 
 Route::get('/', 'HomeController@index')->name('home');

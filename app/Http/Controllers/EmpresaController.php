@@ -18,7 +18,8 @@ class EmpresaController extends Controller
         $empresas = Empresa::all();
 
         if ($empresas->count() > 0) {
-            return view('empresa.index', compact('empresas','empresa_deleted'));
+            //return view('empresa.index', compact('empresas','empresa_deleted'));
+            return view('empresa.index', compact('empresas'));
         } else {
             //return redirect()->route('empresa.create');
             return redirect('/empresa/create');
@@ -130,8 +131,10 @@ class EmpresaController extends Controller
 
         $empresa_deleted ->delete();
 
-        //return redirect()->action('EmpresaController@index', array('empresa_deleted'=>$empresa_deleted));
-        return $this->inicio($empresa_deleted);
+        session()->flash('empresa_deleted', $empresa_deleted);
+
+        return redirect()->action('EmpresaController@index');
+        //return $this->inicio($empresa_deleted);
 
     }
 

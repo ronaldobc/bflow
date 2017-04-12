@@ -10,11 +10,11 @@
 
             <div class="box-body">
 
-                @if (!empty($empresa_deleted))
-                    {!! Form::open(['route' => ['empresa.restore', $empresa_deleted->id], 'id' => 'frm_restore']) !!}
+                @if (session()->has('empresa_deleted'))
+                    {!! Form::open(['route' => ['empresa.restore', session('empresa_deleted')->id], 'id' => 'frm_restore']) !!}
                     {!! Form::close() !!}
                     <div class="callout callout-success">
-                        A empresa "{{$empresa_deleted->nome}}" foi excluida com sucesso.&nbsp;&nbsp;&nbsp;&nbsp;
+                        A empresa "{{session('empresa_deleted')->nome}}" foi excluida com sucesso.&nbsp;&nbsp;&nbsp;&nbsp;
                         <a href="#" onclick="$('#frm_restore').submit()">Restaurar</a>
                     </div>
                 @endif
