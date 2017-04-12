@@ -10,7 +10,7 @@
             @section('cabecalho_pagina', 'Criar Usuário')
             @section('descricao_pagina', 'Cria novo usuário')
 
-            {!! Form::open(['route' => 'usuario.store', 'id' => 'frm_editar']) !!}
+            {!! Form::open(['route' => 'usuario.store', 'id' => 'frm_editar', 'files' => true]) !!}
 
         @else
 
@@ -18,7 +18,7 @@
             @section('descricao_pagina', 'Altera o usuário selecionado')
 
 
-            {!! Form::open(['route' => ['usuario.update', $usuario->id], 'method' => 'put', 'id' => 'frm_editar']) !!}
+            {!! Form::open(['route' => ['usuario.update', $usuario->id], 'files' => true, 'method' => 'put', 'id' => 'frm_editar']) !!}
 
 
         @endif
@@ -46,6 +46,20 @@
                                     <label for="password_confirmation">Confirmação de  Senha</label>
                                     {!! Form::password('password_confirmation', ['class'=>'form-control']) !!}
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label for="password_confirmation">Foto</label>
+                                    {!! Form::file('foto', ['class'=>'form-control']) !!}
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                @if ($usuario->foto != '')
+                                    <img src="{{$usuario->fotoPath}}" width="100px" class="img-responsive img-thumbnail" />
+                                @endif
                             </div>
                         </div>
 

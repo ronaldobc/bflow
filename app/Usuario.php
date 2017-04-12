@@ -11,6 +11,8 @@ class Usuario extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
+    public $diretorio_foto = "img\\usuario";
+
     protected $table = 'usuario';
 
     /**
@@ -30,4 +32,9 @@ class Usuario extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function getFotoPathAttribute() {
+        return '\\' . $this->diretorio_foto . '\\' . $this->foto;
+    }
+
 }

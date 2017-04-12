@@ -37,7 +37,7 @@
                     @foreach($usuarios as $usuario)
                     <tr>
                         <td>{{$usuario->id}}</td>
-                        <td></td>
+                        <td><img src="{{$usuario->fotoPath}}" width="70px" class="img-responsive img-thumbnail"></td>
                         <td><a href="/usuario/{{$usuario->id}}/edit">{{$usuario->nome}}</a></td>
                         <td><a href="/usuario/{{$usuario->id}}/edit">{{$usuario->email}}</a></td>
                         <td>{{($usuario->ativo)?('Sim'):('Não')}}</td>

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
+
+
+    public function __construct() {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -50,6 +56,14 @@ class UsuarioController extends Controller
         $usuario->email = $request->email;
         $usuario->password = bcrypt($request->password);
         $usuario->ativo = (!$request->ativo)?(0):(1);
+
+        //upload da foto
+        if ($foto = $request->file('foto')) {
+            $nome_arq = str_replace('.','_',str_replace('@','',$usuario->email)) . '.' . $foto->extension();
+            $foto->move($usuario->diretorio_foto, $nome_arq);
+            $usuario->foto = $nome_arq;
+        }
+
         $usuario->save();
 
         return redirect()->action('UsuarioController@index');
@@ -112,6 +126,20 @@ class UsuarioController extends Controller
             $usuario->password = bcrypt($request->password);
         }
         $usuario->ativo = (!$request->ativo)?(0):(1);
+
+        //upload da foto
+        if ($foto = $request->file('foto')) {
+            $nome_arq = str_replace('.','_',str_replace('@','',$usuario->email)) . '.' . $foto->extension();
+
+            if ($usuario->foto != '' && $usuario->foto != $nome_arq) {
+                if (file_exists(public_path() . '\\' . $usuario->fotoPath)) {
+                    unlink(public_path() . '\\' . $usuario->fotoPath);
+                }
+            }
+
+            $foto->move($usuario->diretorio_foto, $nome_arq);
+            $usuario->foto = $nome_arq;
+        }
 
         $usuario->save();
 
