@@ -19,13 +19,17 @@
                     </div>
                 @endif
 
+                    <div class="box-header">
+                        <a href="{{route('usuario.create')}}" class="btn btn-primary">Novo Usuário</a>
+                    </div>
+
                 @if (empty($usuarios))
                     @else
-                <table id="listagem" class="table table-bordered table-hover">
+                <table id="listagem" class="table table-striped table-hover">
                     <thead>
                     <tr>
                         <th>#</th>
-                        <th>&nbsp;</th>
+                        <th>Avatar</th>
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>Ativo</th>

@@ -21,11 +21,12 @@
 
                 @if (empty($empresas))
                     @else
-                <table id="listagem" class="table table-bordered table-hover">
+                <table id="listagem" class="table table-striped table-hover">
                     <thead>
                     <tr>
                         <th>#</th>
                         <th>Nome</th>
+                        <th>Departamentos</th>
                         <th>Criado em</th>
                         <th>Alterado em</th>
                     </tr>
@@ -35,6 +36,7 @@
                     <tr>
                         <td>{{$empresa->id}}</td>
                         <td><a href="/empresa/{{$empresa->id}}/edit">{{$empresa->nome}}</a></td>
+                        <td><a href="/departamento/empresa/{{$empresa->id}}">{{$empresa->departamentos()->count()}}</a></td>
                         <td>{{$empresa->created_at->diffForHumans()}}</td>
                         <td>{{$empresa->updated_at->diffForHumans()}}</td>
                     </tr>

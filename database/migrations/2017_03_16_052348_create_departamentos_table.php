@@ -17,7 +17,7 @@ class CreateDepartamentosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->integer('emp_id');
-            $table->integer('dep_cd_pai');
+            $table->integer('dep_cd_pai')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

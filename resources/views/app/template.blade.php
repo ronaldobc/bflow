@@ -23,6 +23,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link href="{{ asset("/admin-lte/dist/css/skins/skin-blue.min.css")}}" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{{ asset("/admin-lte/plugins/iCheck/square/blue.css") }}">
 
+    <link rel="stylesheet" href="{{ asset("/fancytree/skin-bootstrap/ui.fancytree.min.css") }}">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -79,6 +81,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <script src="{{ asset ("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js")}}"></script>
 <script src="{{ asset ("/admin-lte/plugins/fastclick/fastclick.js")}}"></script>
+
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+<script src="{{asset("/fancytree/jquery.fancytree-all.min.js")}}"></script>
 
 @yield('scripts')
 

@@ -31,4 +31,12 @@ Route::post('empresa/restore/{id}', 'EmpresaController@restore')->name('empresa.
 Route::resource('usuario', 'UsuarioController');
 Route::post('usuario/restore/{id}', 'UsuarioController@restore')->name('usuario.restore');
 
+// departamento
+Route::resource('departamento', 'DepartamentoController');
+Route::post('departamento/restore/{id}', 'DepartamentoController@restore')->name('departamento.restore');
+Route::get('departamento/empresa/{id}', 'DepartamentoController@index');
+Route::get('departamento_tree/{id_empresa}', 'DepartamentoController@tree');
+Route::put('departamento/{id}/edit_tree', 'DepartamentoController@update_tree')->name('departamento.update_tree');
+
+
 Route::get('/', 'HomeController@index')->name('home');
