@@ -15,4 +15,10 @@ class Empresa extends Model
     public function departamentos() {
         return $this->hasMany('App\Departamento', 'emp_id');
     }
+
+    public function funcoes()
+    {
+        return $this->hasMany('App\Funcao', 'func_id');
+    }
+
 }

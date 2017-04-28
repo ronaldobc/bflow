@@ -62,10 +62,16 @@ class DepartamentoController extends Controller
 
 
     private function validar(Request $request) {
-        $this->validate($request, [
-            'nome' => 'required',
-            'emp_id' => 'required'
-        ]);
+        $this->validate($request,
+            [
+                'nome' => 'required',
+                'emp_id' => 'required'
+            ],
+            [
+                'nome.required' => 'O nome do Departamento é obrigatório',
+                'emp_id.required' => 'A empresa é obrigatória'
+            ]
+        );
     }
 
     /**

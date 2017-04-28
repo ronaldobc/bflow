@@ -38,5 +38,10 @@ Route::get('departamento/empresa/{id}', 'DepartamentoController@index');
 Route::get('departamento_tree/{id_empresa}', 'DepartamentoController@tree');
 Route::put('departamento/{id}/edit_tree', 'DepartamentoController@update_tree')->name('departamento.update_tree');
 
+// departamento
+Route::resource('funcao', 'FuncaoController');
+Route::post('funcao/restore/{id}', 'FuncaoController@restore')->name('funcao.restore');
+Route::get('funcao/empresa/{id}', 'FuncaoController@index');
+
 
 Route::get('/', 'HomeController@index')->name('home');

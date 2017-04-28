@@ -99,12 +99,22 @@ class UsuarioController extends Controller
                 'nome' => 'required',
                 'email' => 'required|email',
                 'password' => 'required|confirmed'
-            ]);
+            ],
+                [
+                    'nome.required' => 'O nome do Usuário é obrigatório',
+                    'email.required' => 'O E-mail é obrigatório',
+                    'password.required' => 'A senha é obrigatória',
+                    'password.confirmed' => 'A senha não combina com a confirmação'
+                ]);
         } else {
             $this->validate($request, [
                 'nome' => 'required',
                 'email' => 'required|email',
-            ]);
+            ],
+                [
+                    'nome.required' => 'O nome do Usuário é obrigatório',
+                    'email.required' => 'O E-mail é obrigatório',
+                ]);
         }
     }
 

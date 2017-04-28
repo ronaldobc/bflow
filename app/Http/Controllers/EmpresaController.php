@@ -98,7 +98,10 @@ class EmpresaController extends Controller
     private function validar(Request $request) {
         $this->validate($request, [
             'nome' => 'required'
-        ]);
+        ],
+            [
+                'nome.required' => 'O nome da Empresa é obrigatório',
+            ]);
     }
 
     /**

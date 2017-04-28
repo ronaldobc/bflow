@@ -11,6 +11,7 @@
             <li><a href="{{route('empresa.index')}}"><i class="fa fa-bank"></i><span>Empresas</span></a></li>
             <li><a href="{{route('departamento.index')}}"><i class="fa fa-cube"></i><span>Departamentos</span></a></li>
             <li><a href="{{route('usuario.index')}}"><i class="fa fa-users"></i><span>Usuários</span></a></li>
+            <li><a href="{{route('funcao.index')}}"><i class="fa fa-graduation-cap"></i><span>Funções</span></a></li>
             <!--
                         <li><a href="#"><i class="fa fa-dashboard"></i><span>Another Link</span></a></li>
                         <li class="treeview">
