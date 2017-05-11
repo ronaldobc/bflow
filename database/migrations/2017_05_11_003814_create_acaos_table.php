@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGruposTable extends Migration
+class CreateAcaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateGruposTable extends Migration
      */
     public function up()
     {
-        Schema::create('grupo', function (Blueprint $table) {
+        Schema::create('acaos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->integer('emp_id')->unsigned();
-            $table->foreign('emp_id')->references('id')->on('empresa');
-            $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ class CreateGruposTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupo');
+        Schema::dropIfExists('acaos');
     }
 }

@@ -38,10 +38,16 @@ Route::get('departamento/empresa/{id}', 'DepartamentoController@index');
 Route::get('departamento_tree/{id_empresa}', 'DepartamentoController@tree');
 Route::put('departamento/{id}/edit_tree', 'DepartamentoController@update_tree')->name('departamento.update_tree');
 
-// departamento
+// funcao
 Route::resource('funcao', 'FuncaoController');
 Route::post('funcao/restore/{id}', 'FuncaoController@restore')->name('funcao.restore');
 Route::get('funcao/empresa/{id}', 'FuncaoController@index');
+
+
+// grupo usuarios
+Route::resource('grupo', 'GrupoController');
+Route::post('grupo/restore/{id}', 'GrupoController@restore')->name('grupo.restore');
+Route::get('grupo/empresa/{id}', 'GrupoController@index');
 
 
 Route::get('/', 'HomeController@index')->name('home');

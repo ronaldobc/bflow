@@ -37,4 +37,9 @@ class Usuario extends Authenticatable
         return '\\' . $this->diretorio_foto . '\\' . $this->foto;
     }
 
+    public function grupos()
+    {
+        return $this->belongsToMany('App\Grupo','grupo_usuarios','usu_id');
+    }
+
 }
