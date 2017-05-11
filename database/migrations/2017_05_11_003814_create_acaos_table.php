@@ -13,9 +13,12 @@ class CreateAcaosTable extends Migration
      */
     public function up()
     {
-        Schema::create('acaos', function (Blueprint $table) {
+        Schema::create('acao', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('descricao');
+            $table->string('nome')->unique();
+            $table->integer('mod_id')->unsigned();
+            $table->foreign('mod_id')->references('id')->on('modulo');
         });
     }
 
@@ -26,6 +29,6 @@ class CreateAcaosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('acaos');
+        Schema::dropIfExists('acao');
     }
 }

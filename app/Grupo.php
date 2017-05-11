@@ -22,4 +22,12 @@ class Grupo extends Model
         return $this->belongsToMany('App\Usuario','grupo_usuarios','grupo_id', 'usu_id');
     }
 
+    public function modulos()
+    {
+        return $this->morphedByMany('App\Modulo','obj','permissao_grupo', 'grupo_id');
+    }
+
+    public function acoes() {
+        return $this->morphedByMany('App\Acao','obj','permissao_grupo', 'grupo_id');
+    }
 }

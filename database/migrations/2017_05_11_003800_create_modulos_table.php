@@ -13,9 +13,10 @@ class CreateModulosTable extends Migration
      */
     public function up()
     {
-        Schema::create('modulos', function (Blueprint $table) {
+        Schema::create('modulo', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->string('descricao');
+            $table->string('nome')->unique();
         });
     }
 
@@ -26,6 +27,6 @@ class CreateModulosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('modulos');
+        Schema::dropIfExists('modulo');
     }
 }
