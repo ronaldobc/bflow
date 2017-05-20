@@ -1,21 +1,21 @@
 @extends('app.template')
 
-@section('titulo_pagina', 'Permissão por Grupo')
-@section('cabecalho_pagina', 'Permissão por Grupo')
-@section('descricao_pagina', 'Define as permissões de acesso por grupo de usuário')
+@section('titulo_pagina', 'Permissão por Função')
+@section('cabecalho_pagina', 'Permissão por Função')
+@section('descricao_pagina', 'Define as permissões de acesso por funções de colaboradores')
 
 @section('content')
 
         <div class="box box-primary">
 
-            {!! Form::open(['route' => ['permissaogrupo.update', $grupo->id], 'method' => 'put', 'id' => 'frm_editar']) !!}
+            {!! Form::open(['route' => ['permissaofuncao.update', $funcao->id], 'method' => 'put', 'id' => 'frm_editar']) !!}
 
             <div class="box-body">
 
-                <label for="grupo">Grupos</label>
-                <select size="1" name="grupo" id="grupo" class="form-control" onchange="atualizar()">
-                @foreach($grupos as $grupoc)
-                        <option value="{{$grupoc->id}}" {{($grupoc->id==$id_grupo)?('selected="selected"'):('')}}>{{$grupoc->nome.' [' . $grupo->empresa->nome.']'}}</option>
+                <label for="funcao">Funções</label>
+                <select size="1" name="funcao" id="funcao" class="form-control" onchange="atualizar()">
+                @foreach($funcoes as $funcaoc)
+                        <option value="{{$funcaoc->id}}" {{($funcaoc->id==$id_funcao)?('selected="selected"'):('')}}>{{$funcaoc->nome.' [' . $funcaoc->empresa->nome.']'}}</option>
                 @endforeach
                 </select>
 
@@ -30,7 +30,7 @@
                     <tr>
                         <td colspan="2">
                             <label>
-                                {!! Form::checkbox('perm_modulo[]', $modulo->id, ($grupo->modulos->contains($modulo->id))) !!}
+                                {!! Form::checkbox('perm_modulo[]', $modulo->id, ($funcao->modulos->contains($modulo->id))) !!}
                                 {{$modulo->descricao}}
                             </label>
                         </td>
@@ -40,7 +40,7 @@
                                 <td width="10px">&nbsp;</td>
                                 <td>
                                     <label>
-                                        {!! Form::checkbox('perm_acao[]', $acao->id, ($grupo->acoes->contains($acao->id))) !!}
+                                        {!! Form::checkbox('perm_acao[]', $acao->id, ($funcao->acoes->contains($acao->id))) !!}
                                         {{$acao->descricao}}
                                     </label>
                                 </td>
@@ -75,7 +75,7 @@
     <script type="text/javascript">
     function atualizar()
     {
-        document.location = "/permissao/grupo/" + $('#grupo').val();
+        document.location = "/permissao/funcao/" + $('#funcao').val();
     }
     </script>
 @endsection

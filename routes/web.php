@@ -54,8 +54,8 @@ Route::get('permissao/grupo/{id?}', 'PermissaoGrupoController@index')->name('per
 Route::put('permissao/grupo/{id_grupo}', 'PermissaoGrupoController@update')->name('permissaogrupo.update');
 
 // permissão função
-Route::get('permissao/funcao/{id}', 'PermissaoFuncaoController@index')->name('permissaofuncao.index');
-Route::put('permissao/funcao/{id}', 'PermissaoFuncaoController@update')->name('permissaofuncao.update');
+Route::get('permissao/funcao/{id?}', 'PermissaoFuncaoController@index')->name('permissaofuncao.index');
+Route::put('permissao/funcao/{id_funcao}', 'PermissaoFuncaoController@update')->name('permissaofuncao.update');
 
 
 Route::get('/', 'HomeController@index')->name('home');

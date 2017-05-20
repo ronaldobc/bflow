@@ -17,4 +17,14 @@ class Funcao extends Model
     {
         return $this->belongsTo('App\Empresa', 'emp_id');
     }
+
+    public function modulos()
+    {
+        return $this->morphedByMany('App\Modulo','obj','permissao_funcao', 'funcao_id');
+    }
+
+    public function acoes() {
+        return $this->morphedByMany('App\Acao','obj','permissao_funcao', 'funcao_id');
+    }
+
 }
