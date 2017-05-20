@@ -14,6 +14,8 @@
             <li class="header">SEGURANÇA</li>
             <li><a href="{{route('grupo.index')}}"><i class="fa fa-users"></i><span>Grupo de Usuários</span></a></li>
             <li><a href="{{route('usuario.index')}}"><i class="fa fa-user"></i><span>Usuários</span></a></li>
+            <li><a href="{{route('permissaogrupo.index')}}"><i class="fa fa-unlock-alt"></i><span>Permissão por Grupo</span></a></li>
+            <li><a href="#"><i class="fa fa-unlock-alt"></i><span>Permissão por Função</span></a></li>
             <!--
                                                 <li><a href="#"><i class="fa fa-dashboard"></i><span>Another Link</span></a></li>
                                                 <li class="treeview">

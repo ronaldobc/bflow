@@ -49,5 +49,13 @@ Route::resource('grupo', 'GrupoController');
 Route::post('grupo/restore/{id}', 'GrupoController@restore')->name('grupo.restore');
 Route::get('grupo/empresa/{id}', 'GrupoController@index');
 
+// permissão grupo
+Route::get('permissao/grupo/{id?}', 'PermissaoGrupoController@index')->name('permissaogrupo.index');
+Route::put('permissao/grupo/{id_grupo}', 'PermissaoGrupoController@update')->name('permissaogrupo.update');
+
+// permissão função
+Route::get('permissao/funcao/{id}', 'PermissaoFuncaoController@index')->name('permissaofuncao.index');
+Route::put('permissao/funcao/{id}', 'PermissaoFuncaoController@update')->name('permissaofuncao.update');
+
 
 Route::get('/', 'HomeController@index')->name('home');
