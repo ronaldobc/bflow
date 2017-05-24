@@ -32,6 +32,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Usuários</label>
+                                {!! Form::select('usuarios[]', $usuarios->pluck('nome', 'id'), $grupo->usuarios->pluck('id'),['id'=>'usuarios','class'=>'form-control select2']) !!}
+                            </div>
+
+                            <div class="form-group">
                                 <label>Empresa</label>
                                 @if ($grupo->empresa)
                                     {!! Form::hidden('emp_id', $grupo->emp_id) !!}
@@ -39,11 +44,6 @@
                                 @else
                                     {!! Form::select('emp_id', $empresas->pluck('nome','id'), $grupo->emp_id, ['placeholder'=>'Selecione uma empresa','class'=>'form-control']) !!}
                                 @endif
-                            </div>
-
-                            <div class="form-group">
-                                <label>Usuários</label>
-                                {!! Form::select('usuarios[]', $usuarios->pluck('nome', 'id'), $grupo->usuarios->pluck('id'),['id'=>'usuarios','class'=>'form-control select2']) !!}
                             </div>
 
                         @if($errors->getMessages())

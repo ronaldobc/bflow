@@ -63,6 +63,11 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label>Grupos</label>
+                            {!! Form::select('grupos[]', $grupos->pluck('nome', 'id'), null,['id'=>'grupos','class'=>'form-control select2']) !!}
+                        </div>
+
                         <div class="checkbox icheck">
                             <label>
                                 {!! Form::checkbox('ativo', '1', ($usuario->ativo == 1)) !!}&nbsp;&nbsp;&nbsp;Ativo?
@@ -116,6 +121,10 @@
                 radioClass: 'iradio_square-blue',
                 increaseArea: '20%' // optional
             });
+
+            $("#grupos").select2({multiple: true});
+            $("#grupos").val({{$usuario->grupos->pluck('id')}}).trigger("change");
+
         });
     </script>
 

@@ -78,4 +78,16 @@
         document.location = "/permissao/grupo/" + $('#grupo').val();
     }
     </script>
+
+    <script src="{{ asset("/admin-lte/plugins/iCheck/icheck.min.js")}}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional
+            });
+        });
+    </script>
+
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Grupo;
 use App\Usuario;
 use Illuminate\Http\Request;
 
@@ -37,8 +38,9 @@ class UsuarioController extends Controller
     public function create()
     {
         $usuario = new Usuario;
+        $grupos = Grupo::all();
 
-        return view('usuario.edit', compact('usuario'));
+        return view('usuario.edit', compact('usuario', 'grupos'));
     }
 
     /**
@@ -66,6 +68,13 @@ class UsuarioController extends Controller
 
         $usuario->save();
 
+        if ($request['grupos']) {
+            $usuario->grupos()->sync($request['grupos']);
+
+        } else {
+            $usuario->grupos()->sync([]);
+        }
+
         return redirect()->action('UsuarioController@index');
     }
 
@@ -89,8 +98,9 @@ class UsuarioController extends Controller
     public function edit($id)
     {
         $usuario = Usuario::findOrFail($id);
+        $grupos = Grupo::all();
 
-        return view('usuario.edit', compact('usuario'));
+        return view('usuario.edit', compact('usuario', 'grupos'));
     }
 
     private function validar(Request $request, $novo) {
@@ -152,6 +162,13 @@ class UsuarioController extends Controller
         }
 
         $usuario->save();
+
+        if ($request['grupos']) {
+            $usuario->grupos()->sync($request['grupos']);
+
+        } else {
+            $usuario->grupos()->sync([]);
+        }
 
         return redirect()->action('UsuarioController@index');
     }
