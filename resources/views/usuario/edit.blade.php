@@ -65,7 +65,7 @@
 
                         <div class="form-group">
                             <label>Grupos</label>
-                            {!! Form::select('grupos[]', $grupos->pluck('nome', 'id'), null,['id'=>'grupos','class'=>'form-control select2']) !!}
+                            {!! Form::select('grupos[]', $grupos->pluck('NomeComEmpresa', 'id'), null,['id'=>'grupos','class'=>'form-control select2']) !!}
                         </div>
 
                         <div class="checkbox icheck">

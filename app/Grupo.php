@@ -12,6 +12,11 @@ class Grupo extends Model
     protected $table = 'grupo';
     protected $fillable = ['nome', 'emp_id'];
 
+    public function getNomeComEmpresaAttribute()
+    {
+        return $this->nome . ' ['.$this->empresa->nome.']';
+    }
+
     public function empresa()
     {
         return $this->belongsTo('App\Empresa', 'emp_id');

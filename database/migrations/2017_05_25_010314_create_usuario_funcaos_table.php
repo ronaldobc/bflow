@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuarioDepartamentosTable extends Migration
+class CreateUsuarioFuncaosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateUsuarioDepartamentosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuario_dep', function (Blueprint $table) {
+        Schema::create('usuario_funcao', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usu_id')->unsigned();
-            $table->integer('dep_id')->unsigned();
+            $table->integer('func_id')->unsigned();
             $table->dateTime('inicio');
             $table->dateTime('fim')->nullable();
-            $table->integer('nivel_id')->unsigned();
+            $table->foreign('usu_id')->references('id')->on('usuario');
+            $table->foreign('func_id')->references('id')->on('funcao');
             $table->timestamps();
         });
     }
@@ -31,6 +32,6 @@ class CreateUsuarioDepartamentosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuario_dep');
+        Schema::dropIfExists('usuario_funcao');
     }
 }
