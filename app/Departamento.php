@@ -20,4 +20,8 @@ class Departamento extends Model
         return $this->belongsTo('App\Departamento', 'dep_cd_pai');
     }
 
+    public function usuariosDepto() {
+        return $this->hasMany('App\UsuarioDepartamento','dep_id');
+    }
+
 }

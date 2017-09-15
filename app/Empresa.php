@@ -18,7 +18,7 @@ class Empresa extends Model
 
     public function funcoes()
     {
-        return $this->hasMany('App\Funcao', 'func_id');
+        return $this->hasMany('App\Funcao', 'emp_id');
     }
 
 }

@@ -27,4 +27,8 @@ class Funcao extends Model
         return $this->morphedByMany('App\Acao','obj','permissao_funcao', 'funcao_id');
     }
 
+    public function usuariosFuncao() {
+        return $this->hasMany('App\UsuarioFuncao', 'func_id');
+    }
+
 }

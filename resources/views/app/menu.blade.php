@@ -16,6 +16,7 @@
             <li><a href="{{route('usuario.index')}}"><i class="fa fa-user"></i><span>Usuários</span></a></li>
             <li><a href="{{route('permissaogrupo.index')}}"><i class="fa fa-unlock-alt"></i><span>Permissão por Grupo</span></a></li>
             <li><a href="{{route('permissaofuncao.index')}}"><i class="fa fa-unlock-alt"></i><span>Permissão por Função</span></a></li>
+            <li><a href="{{route('alocacao.usuario.show',1)}}"><i class="fa fa-suitcase"></i><span>Alocação Usuário</span></a></li>
             <!--
                                                 <li><a href="#"><i class="fa fa-dashboard"></i><span>Another Link</span></a></li>
                                                 <li class="treeview">
