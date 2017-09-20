@@ -33,6 +33,8 @@
                         <th>Nome</th>
                         <th>E-mail</th>
                         <th>Ativo</th>
+                        <th>Departamentos</th>
+                        <th>Funções</th>
                         <th>Criado em</th>
                         <th>Alterado em</th>
                     </tr>
@@ -45,6 +47,31 @@
                         <td><a href="/usuario/{{$usuario->id}}/edit">{{$usuario->nome}}</a></td>
                         <td><a href="/usuario/{{$usuario->id}}/edit">{{$usuario->email}}</a></td>
                         <td>{{($usuario->ativo)?('Sim'):('Não')}}</td>
+                        <td>
+                            @if ($usuario->departamentosAtuais()->count() >0)
+                                @foreach($usuario->departamentosAtuais() as $depto)
+                                    <a href="{{route('alocacao.usuario.empresa.show',[$usuario->id,$depto->departamento->empresa->id,'aba=dep'])}}">
+                                        {{$depto->departamento->nome}}<br/>
+                                        <span class="label label-success">{{$depto->nivel->nome}}</span>
+                                        <span class="label label-primary">{{$depto->departamento->empresa->nome}}</span><br/>
+                                    </a>
+                                @endforeach
+                            @else
+                                <a href="{{route('alocacao.usuario.show',[$usuario->id,'aba=dep'])}}">Alocar</a>
+                            @endif
+                        </td>
+                        <td>
+                            @if ($usuario->funcoesAtuais()->count() >0)
+                                @foreach($usuario->funcoesAtuais() as $func)
+                                    <a href="{{route('alocacao.usuario.empresa.show',[$usuario->id,$depto->departamento->empresa->id,'aba=func'])}}">
+                                        {{$func->funcao->nome}}<br/>
+                                        <span class="label label-primary">{{$func->funcao->empresa->nome}}</span>
+                                    </a>
+                                @endforeach
+                            @else
+                                <a href="{{route('alocacao.usuario.show',[$usuario->id,'aba=func'])}}">Alocar</a>
+                            @endif
+                        </td>
                         <td>{{$usuario->created_at->diffForHumans()}}</td>
                         <td>{{$usuario->updated_at->diffForHumans()}}</td>
                     </tr>
