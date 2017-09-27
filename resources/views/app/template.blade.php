@@ -15,6 +15,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Ionicons -->
     <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset("/admin-lte/plugins/datatables/dataTables.bootstrap.css")}}">
+
     <link rel="stylesheet" href="{{ asset("/admin-lte/plugins/iCheck/square/blue.css") }}">
 
     <link rel="stylesheet" href="{{ asset("/fancytree/skin-bootstrap/ui.fancytree.min.css") }}">
@@ -83,6 +86,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset ("/admin-lte/bootstrap/js/bootstrap.min.js") }}" type="text/javascript"></script>
 
 <script src="{{asset("/admin-lte/plugins/select2/select2.full.min.js")}}"></script>
+
+<!-- DataTables -->
+<script src="{{ asset ("/admin-lte/plugins/datatables/jquery.dataTables.min.js")}}"></script>
+<script src="{{ asset ("/admin-lte/plugins/datatables/dataTables.bootstrap.js")}}"></script>
 
 <script src="{{ asset ("/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js")}}"></script>
 <script src="{{ asset ("/admin-lte/plugins/fastclick/fastclick.js")}}"></script>

@@ -16,7 +16,7 @@
         @else
 
             @section('cabecalho_pagina', 'Alterar Departamento')
-            @section('descricao_pagina', 'Altera o departamento selecionada')
+            @section('descricao_pagina', 'Altera o departamento selecionado')
 
 
             {!! Form::open(['route' => ['departamento.update', $depto->id], 'method' => 'put', 'id' => 'frm_editar']) !!}

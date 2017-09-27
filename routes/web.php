@@ -59,9 +59,8 @@ Route::put('permissao/funcao/{id_funcao}', 'PermissaoFuncaoController@update')->
 
 //alocação usuario
 //Route::resource('alocacao/usuario', 'AlocacaoUsuarioController');
-Route::get('alocacao/usuario/{id}', 'AlocacaoUsuarioController@show')->name('alocacao.usuario.show');
-Route::get('alocacao/usuario/{id}/empresa/{id_empresa}', 'AlocacaoUsuarioController@show')->name('alocacao.usuario.empresa.show');
-//Route::get('alocacao/usuario/{id}/empresa/{id_empresa}/aba/{aba}', 'AlocacaoUsuarioController@show');
+Route::get('alocacao/usuario/{id}/{aba?}', 'AlocacaoUsuarioController@show')->name('alocacao.usuario.show');
+Route::get('alocacao/usuario/{id}/empresa/{id_empresa}/{aba?}', 'AlocacaoUsuarioController@show_empresa')->name('alocacao.usuario.empresa.show');
 Route::post('alocacaodep/usuario/{id}', 'AlocacaoUsuarioController@storedep')->name('alocacao.usuario.storedep');
 Route::post('alocacaofunc/usuario/{id}', 'AlocacaoUsuarioController@storefunc')->name('alocacao.usuario.storefunc');
 Route::get('alocacaodep/{id}/finaliza', 'AlocacaoUsuarioController@finalizadep')->name('alocacao.usuario.finalizadep');

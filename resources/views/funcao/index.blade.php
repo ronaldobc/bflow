@@ -2,7 +2,7 @@
 
 @section('titulo_pagina', 'Funções')
 @section('cabecalho_pagina', 'Funções')
-@section('descricao_pagina', 'Lista os funções de colaboradores cadastrados')
+@section('descricao_pagina', 'Lista as funções de colaboradores cadastrados')
 
 @section('content')
 

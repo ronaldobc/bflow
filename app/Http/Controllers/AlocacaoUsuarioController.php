@@ -157,12 +157,15 @@ class AlocacaoUsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id, $id_empresa = 0)
+
+    public function show(Request $request, $id, $aba = 'dep', $id_empresa = 0)
     {
         $usuario = Usuario::findorfail($id);
         $empresas = Empresa::all();
 
-        $aba = $request->query('aba', 'dep');
+        //dd($aba);
+
+        //$aba = $request->query('aba', 'dep');
 
         if ($empresas->count() <=0 ) {
             return redirect('/empresa.create');
@@ -184,6 +187,11 @@ class AlocacaoUsuarioController extends Controller
 
         return view('alocacao.index', compact('usuario', 'empresas', 'niveis', 'funcoes', 'id_empresa', 'usuario_dep', 'usuario_func', 'departamentos', 'aba'));
 
+    }
+
+    public function show_empresa(Request $request, $id, $id_empresa, $aba = 'dep')
+    {
+        return $this->show($request, $id, $aba, $id_empresa);
     }
 
     /**
